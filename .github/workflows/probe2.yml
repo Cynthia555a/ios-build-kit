@@ -1,0 +1,33 @@
+name: Probe2
+
+on: workflow_dispatch
+
+jobs:
+  latest:
+    name: p-latest
+    runs-on: macos-latest
+    timeout-minutes: 12
+    steps:
+      - name: hello
+        run: sw_vers || true
+  mac15:
+    name: p-mac15
+    runs-on: macos-15
+    timeout-minutes: 12
+    steps:
+      - name: hello
+        run: sw_vers || true
+  mac26:
+    name: p-mac26
+    runs-on: macos-26
+    timeout-minutes: 12
+    steps:
+      - name: hello
+        run: sw_vers || true
+  linux:
+    name: p-linux2
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: hello
+        run: echo linux2 ok
