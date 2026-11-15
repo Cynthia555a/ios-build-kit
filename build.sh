@@ -43,6 +43,14 @@ echo "==> 检查产物"
 file "${APP_DIR}/${APP_NAME}"
 ls -1 "${APP_DIR}"
 
+echo "==> ad-hoc 签名（TrollStore 安装更稳，失败也不影响）"
+if command -v codesign >/dev/null 2>&1; then
+  codesign --force --sign - "${APP_DIR}/${APP_NAME}" 2>/dev/null || \
+    echo "    跳过签名（TrollStore 会自己签）"
+else
+  echo "    没有 codesign，跳过"
+fi
+
 echo "==> 打包 ipa"
 rm -f "${ROOT}/${APP_NAME}.ipa"
 (cd "${BUILD_DIR}" && zip -qry "${ROOT}/${APP_NAME}.ipa" Payload)
