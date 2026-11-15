@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-APP_NAME="TrollCalc____"
+APP_NAME="Calculator"
 MIN_IOS="14.0"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="${ROOT}/build"
